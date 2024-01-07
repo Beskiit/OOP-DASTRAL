@@ -8,18 +8,12 @@ public class HostFatal extends Overriding{
 		
 		over.name();
 		loginProcess();
-        }      
-}
+}      
         
         public static void loginProcess(){
-		System.out.println ("Do you want to:");
 		System.out.println ("1 - Log In");
 		System.out.println ("2 - Sign up");
-                over.line();
-		System.out.println ("Press(1 or 2):");
-                over.line();
-                System.out.println("Your answer: ");
-		int choice = scn.nextInt();
+		int choice = sc.nextInt();
                 over.line();
 		if (choice == 1) {
                 login();
@@ -27,38 +21,37 @@ public class HostFatal extends Overriding{
                 signUp();
                 } else {
                 System.out.println("Invalid choice, Please enter 1 or 2 only.");
-	}
+                }
+        }
         
-	public static void login() {	
-        Overriding over = new Overriding();
-        Scanner scn = new Scanner(System.in);
-        over.line();
+	public static void login() {
         System.out.print("Enter your username: ");
-        String username = scn.nextLine();
+        String username = sc.next();
         
         System.out.print("Enter your password: ");
-        String password = scn.nextLine();
+        String password = sc.next();
         
 
         
         if (username.equals("admin") && password.equals("password")) {
             System.out.println("Login successful!");
             afterLogin();
+            over.line();
         } else {
             System.out.println("Incorrect username or password.");
+            over.line();
         }
     }
 	public static void signUp() {
         Overriding over = new Overriding();
-        Scanner scn = new Scanner(System.in);
         System.out.print("Enter a new username: ");
-        String newUsername = scn.nextLine();
+        String newUsername = sc.nextLine();
         over.line();
         System.out.print("Enter a new password: ");
-        String newPassword = scn.nextLine();
-        over.line();
+        String newPassword = sc.nextLine();
         
         System.out.println("Account created successfully for username: " + newUsername);
+        over.line();
         
     }
         public static void afterLogin() {
@@ -69,8 +62,7 @@ public class HostFatal extends Overriding{
         System.out.println("2. Modify settings");
         System.out.println("3. Logout");
 
-        Scanner scanner = new Scanner(System.in);
-        int option = scanner.nextInt();
+        int option = sc.nextInt();
 
         switch (option) {
             case 1:
@@ -90,6 +82,4 @@ public class HostFatal extends Overriding{
                 break;
         }
     }
-        
-
 }
