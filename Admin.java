@@ -1,4 +1,4 @@
-package hostfatall;
+package hostfatal;
 import java.util.Scanner;
 
 public class Admin {
@@ -22,7 +22,7 @@ public class Admin {
 	    	}
       } while (!success);
       
-      sc.close();
+        adminActions();
     }
       
       
@@ -66,7 +66,6 @@ public class Admin {
             }
         } while (choice != 6);
 
-        sc.close();
     }
 
     private void addPatient() {
