@@ -2,11 +2,16 @@ package DastralOOP;
 import java.util.Scanner;
 
 public class HostFatal extends Overriding{
+	static Overriding over = new Overriding();
+	static Scanner sc = new Scanner(System.in);
 	public static void main(String[]args) {
-		Overriding over = new Overriding();
 		
 		over.name();
-        Scanner scn = new Scanner(System.in);
+		loginProcess();
+        }      
+}
+        
+        public static void loginProcess(){
 		System.out.println ("Do you want to:");
 		System.out.println ("1 - Log In");
 		System.out.println ("2 - Sign up");
@@ -22,10 +27,7 @@ public class HostFatal extends Overriding{
                 signUp();
                 } else {
                 System.out.println("Invalid choice, Please enter 1 or 2 only.");
-        }      
 	}
-        
-        
         
 	public static void login() {	
         Overriding over = new Overriding();
