@@ -1,4 +1,4 @@
-public class PatientBill {
+public class PatientBill extends HostFatal{
     private double amount;
 
     public void setAmount(double amount){
