@@ -1,0 +1,17 @@
+LinkedList<Doctor> doctorsList = new LinkedList<>();
+
+        Doctor doc1 = new Doctor("Dr. Smith", "Cardiologist", "Monday, Wednesday, Friday");
+        Doctor doc2 = new Doctor("Dr. Johnson", "Dermatologist", "Tuesday, Thursday");
+        Doctor doc3 = new Doctor("Dr. Williams", "Pediatrician", "Monday, Wednesday");
+        Doctor doc4 = new Doctor("Dr. Brown", "Orthopedic Surgeon", "Tuesday, Friday");
+        Doctor doc5 = new Doctor("Dr. Garcia", "Oncologist", "Monday, Thursday");
+
+        doctorsList.add(doc1);
+        doctorsList.add(doc2);
+        doctorsList.add(doc3);
+        doctorsList.add(doc4);
+        doctorsList.add(doc5);
+        
+        System.out.println("List of Doctors:");
+        for (Doctor doctor : doctorsList) {
+            System.out.println(doctor);
