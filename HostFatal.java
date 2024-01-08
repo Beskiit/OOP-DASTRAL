@@ -8,6 +8,10 @@ public class HostFatal extends Overriding{
 		
 		over.name();
 		loginProcess();
+		PatientBill pb = new PatientBill();
+        
+        pb.setAmount(3000.00);
+        System.out.println("Patient's Bill Amount: Php." + pb.getAmount());
 }      
         
         public static void loginProcess(){
