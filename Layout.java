@@ -7,10 +7,17 @@ public abstract class Layout{
 	abstract void admin();
 	abstract void adminOptions();
 	abstract void userOptions();
-	abstract void addPatient();
-	abstract void editPatient();
-	abstract void viewPatient();
 	abstract void doctors();
 	abstract void viewDoctors();
 	abstract void addDoctor();
+	abstract void addUserName();
+	abstract void removeUserName();
+	abstract void viewUserName();
+	abstract void viewPatientRecord();
+	abstract void addPatientRecord();
+	abstract void editPatientRecord();
+	abstract void viewPatientBills();
+	abstract void addPatientBills();
+	abstract void paymentBills();
+	abstract void billOptionName();
 }
