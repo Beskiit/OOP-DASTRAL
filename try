@@ -1,0 +1,66 @@
+package DastralOOP;
+
+import java.util.*;
+import java.util.Map.Entry;
+
+public class userSide extends Admin{
+	LinkedList <String> patientInfo = new LinkedList <String> ();
+	public int key = 1;
+	public String patientKey = Integer.toString(key);
+	HashMap <String, String> namePatient = new HashMap <String, String>();
+	HashMap <String, String> agePatient = new HashMap <String, String>();
+	HashMap <String, String> genderPatient = new HashMap <String, String>();
+	HashMap <String, String> addressPatient = new HashMap <String, String>();
+	HashMap <String, String> roomPatient = new HashMap <String, String>();
+	HashMap <String, String> illnessPatient = new HashMap <String, String>();
+	HashMap <String, String> doctorPatient = new HashMap <String, String>();
+	HashMap <String, String> statusPatient = new HashMap <String, String>();
+	Map <String, String> patientInformation = new HashMap<String, String>();
+	public String patientName, patientGender, patientAddress, patientIllness, patientDoctor, patientStatus, patientRoom, patientAge;
+	public void patientInfoFinal() {
+		sc.nextLine();
+		System.out.println("Enter the name of patient: ");
+		namePatient.put(patientKey, sc.nextLine());
+		System.out.println("Enter the age of patient: ");
+		agePatient.put(patientKey, sc.nextLine());
+		System.out.println("Enter the gender of patient: ");
+		genderPatient.put(patientKey, sc.nextLine());
+		System.out.println("Enter the address of patient: ");
+		addressPatient.put(patientKey, sc.nextLine());
+		System.out.println("Enter the room of patient: ");
+		roomPatient.put(patientKey, sc.nextLine());
+		System.out.println("Enter the illness of patient: ");
+		illnessPatient.put(patientKey, sc.nextLine());
+		System.out.println("Enter the doctor of patient: ");
+		doctorPatient.put(patientKey, sc.nextLine());
+		System.out.println("Enter the status of patient: ");
+		statusPatient.put(patientKey, sc.nextLine() + "\n");
+		patientInformation.put(patientKey, namePatient.get(patientKey));
+		patientInformation.put(patientKey, agePatient.get(patientKey));
+		patientInformation.put(patientKey, genderPatient.get(patientKey));
+		patientInformation.put(patientKey, addressPatient.get(patientKey));
+		patientInformation.put(patientKey, roomPatient.get(patientKey));
+		patientInformation.put(patientKey, illnessPatient.get(patientKey));
+		patientInformation.put(patientKey, doctorPatient.get(patientKey));
+		patientInformation.put(patientKey, statusPatient.get(patientKey));
+		key++;
+		System.out.println("Patient input done!");
+		over.line();
+	}
+	
+	public void healthRecord() {
+		if(patientKey.isEmpty()) {
+			System.out.println("No patient yet.");
+			over.line();
+		}else {
+			for(Entry<String, String> n : patientInformation.entrySet()) {
+				System.out.println(n.getKey());
+				System.out.println(n.getValue());
+			}
+		}
+	}
+	
+	
+	public void editPatientRecord() {
+	}
+}
