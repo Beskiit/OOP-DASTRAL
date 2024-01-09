@@ -63,7 +63,7 @@ public class UserSide extends Admin{
         if(map.containsKey(editPatient)){
             System.out.println("\t \t \t \t \t \t \t Current patient information of " + editPatient + ":");
             for (String value : map.get(editPatient)) {
-                System.out.println("\t \t \t \t \t \t " + value);
+                System.out.println("\t \t \t \t \t \t \t " + value);
             }
             over.line();
             System.out.println("\t \t \t \t \t \t \t Enter the new patient information for " + editPatient);
