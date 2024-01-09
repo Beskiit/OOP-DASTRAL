@@ -98,7 +98,7 @@ public class UserSide extends Admin {
             String key = entry.getKey();
             List<String> values = entry.getValue();
             over.line();
-            System.out.println("Key: " + key);
+            System.out.println("  Patiend ID: " + key);
             for (String value : values) {
                 System.out.println("  " + value);
             }
