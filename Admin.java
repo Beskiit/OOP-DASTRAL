@@ -14,68 +14,79 @@ public class Admin extends Overriding{
 	
 	public static void adminLogin(){
 		over.admin();
-		boolean success = true;
-        do{
-        	System.out.print("Enter Admin Username : ");
+		while(true) {
+			System.out.print("\t \t \t \t \t \t \t Enter Admin Username : ");
         	String enterAdminUsername = sc.next();
-        	System.out.print("Enter Password : ");
+        	System.out.print("\t \t \t \t \t \t \t Enter Password : ");
         	String  enterAdminPassword = sc.next();
     	  
 	    	if (isAdminValid(enterAdminUsername, enterAdminPassword)) {
-	    		System.out.println("Admin Successfully Logged In");
+	    		System.out.println("\t \t \t \t \t \t \t Admin Successfully Logged In");
+	    		break;
 	    	} else {
-	    		System.out.println("Wrong Credentials\nInvalid Username or Password");
+	    		System.out.println("\t \t \t \t \t \t \t Wrong Credentials\n \t \t \t \t \t \t \t Invalid Username or Password");
 	    	}
-      }while (!success);
+		}
       
         adminActions();
     }
       
       
-    private static boolean isAdminValid(String adminUsername, String adminPassword){
-    	return adminUser.equals(adminUsername) && adminPass.equals(adminPassword);
+    public static boolean isAdminValid(String adminUsername, String adminPassword){
+    	return adminUsername.equals(adminUser) && adminPassword.equals(adminPass);
     }
     
     public static void startProgram(){
     		over.name();
-    		System.out.println ("[1] - Admin");
-    		System.out.println ("[2] - User");
-    		System.out.print("Enter your choice: ");
-    		int choice = sc.nextInt();
-    	    over.line();
-    		if(choice == 1){
-    	        adminLogin();
-    	    }else if (choice == 2){
-    	        userLogin();
-    	    }else{
-    	    	System.out.println("Invalid choice, Please enter 1 or 2 only.");
-    	    }   
+    		while(true) {
+    			System.out.println("\t \t \t \t \t \t \t [1] - Admin");
+        		System.out.println("\t \t \t \t \t \t \t [2] - User");
+        		System.out.println("\t \t \t \t \t \t \t [3] - Exit");
+        		System.out.print("\t \t \t \t \t \t \t Enter your choice: ");
+        		int choice = sc.nextInt();
+        	    over.line();
+        		if(choice == 1){
+        	        adminLogin();
+        	    }else if (choice == 2){
+        	        userLogin();
+        	    }else if(choice == 3){
+        	    	System.out.println("\t \t \t \t \t \t \t Thank you for using our program!");
+        	    	System.exit(0);
+        	    }else {
+        	    	System.err.println("\t \t \t \t \t \t \t Your input is wrong! Please try again.");
+        	    }
+    		}
     }
     
     public static void userLogin() {
     	over.userLoginName();
-    	System.out.print("Enter username: ");
+    	System.out.print("\t \t \t \t \t \t \t Enter username: ");
     	String user = sc.next();
-    	System.out.print("Enter password: ");
+    	System.out.print("\t \t \t \t \t \t \t Enter password: ");
     	String pass = sc.next();
     	
     	if(username.containsKey(user) && username.containsValue(pass)) {
     		userInside();
     	}else {
-    		System.err.println("Username or password is incorrect! Please try again.");
+    		sc.nextLine();
+    		System.err.println("\t \t \t \t \t \t \t Username or password is incorrect! Please try again.");
+    		over.line();
     	}
     }
     
     public static void userInside() {
     	boolean cont = true;
     	while(cont) {
-	    	System.out.println("[1] View patient record");
-	    	System.out.println("[2] Input new patient record");
-	    	System.out.println("[3] Edit patient record");
-	    	System.out.println("[4] Bills and payments");
-	    	System.out.println("[5] Doctors");
-	    	System.out.println("[6] Exit");
+    		over.userOptions();
+	    	System.out.println("\t \t \t \t \t \t \t [1] View patient record");
+	    	System.out.println("\t \t \t \t \t \t \t [2] Input new patient record");
+	    	System.out.println("\t \t \t \t \t \t \t [3] Edit patient record");
+	    	System.out.println("\t \t \t \t \t \t \t [4] Bills and payments");
+	    	System.out.println("\t \t \t \t \t \t \t [5] Doctors");
+	    	System.out.println("\t \t \t \t \t \t \t [6] Back");
+	    	System.out.print("\t \t \t \t \t \t \t Enter your choice: ");
 	    	int choice = sc.nextInt();
+	    	over.line();
 	    		switch(choice) {
 	    		case 1:
 	    			patientInformation.healthRecord();
@@ -87,29 +98,31 @@ public class Admin extends Overriding{
 	    			patientInformation.editKey();
 	    			break;
 	    		case 4:
-	    			
+	    			BillsPayment.billOption();
 	    			break;
 	    		case 5:
+	    			Doctors.doctorOptions();
 	    			break;
 	    		case 6:
 	    			startProgram();
 	    			cont = false;
+	    		default:
+	    			System.out.println("\t \t \t \t \t \t \t Your input is wrong! Please try again.");
 	    	}
     }
  }
 
-    private static void adminActions() {
-
+    public static void adminActions() {
         int choice;
         boolean cont = true;
         
         while(cont) {
-            System.out.println("Admin Options");
-            System.out.println("[1] Add User");
-            System.out.println("[2] Remove User");
-            System.out.println("[3] View User");
-            System.out.println("[4] Exit");
-            System.out.println("Enter your choice");
+        	over.adminOptions();
+            System.out.println("\t \t \t \t \t \t \t [1] Add User");
+            System.out.println("\t \t \t \t \t \t \t [2] Remove User");
+            System.out.println("\t \t \t \t \t \t \t [3] View User");
+            System.out.println("\t \t \t \t \t \t \t [4] Back");
+            System.out.print("\t \t \t \t \t \t \t Enter your choice: ");
             choice = sc.nextInt();
            
             switch (choice) { 
@@ -128,39 +141,40 @@ public class Admin extends Overriding{
                 case 4:
                 	startProgram();
                 	cont = false;
-                    break;
+                default:
+                	System.err.println("\t \t \t \t \t \t \t Your input is wrong! Please try again.");
             }
         }
-
     }
 
-    private static void addUser() {
-        System.out.println("Enter Username: ");
+    public static void addUser() {
+    	over.addUserName();
+        System.out.print("\t \t \t \t \t \t \t Enter Username: ");
         String user = sc.next();
-        System.out.println("Enter Password: ");
+        System.out.print("\t \t \t \t \t \t \t Enter Password: ");
         String pass = sc.next();
         username.put(user, pass);
-        System.out.println("Account created successfuly!");
-        over.line();
+        System.out.println("\t \t \t \t \t \t \t Account created successfuly!");
     }
 
     private static void removeUser() {
-        System.out.print("Enter the username you want to remove: ");
+    	over.removeUserName();
+    	sc.nextLine();
+        System.out.print("\t \t \t \t \t \t \t Enter the username you want to remove: ");
         String userRemove = sc.nextLine();
-        System.out.println("User" + userRemove + "Removed Successfully!");
         username.remove(userRemove);
-        over.line();
+        System.out.println("\t \t \t \t \t \t \t User " + userRemove + " Removed Successfully!");
     }
     
     private static void viewUser(){
+    	over.viewUserName();
       if(username.isEmpty()) {
-    	  System.out.println("No accounts yet.");
+    	  System.out.println("\t \t \t \t \t \t \t No accounts yet.");
       }else {
     	  for(String n : username.keySet()) {
-    		  System.out.println("\nUsername: " + n);
-    		  System.out.println("Password: " + n + "\n");
+    		  System.out.println("\n \t \t \t \t \t \t \t Username: " + n);
+    		  System.out.println("\t \t \t \t \t \t \t Password: " + n + "\n");
     	  }
-    	  over.line();
       }
     }
 }
