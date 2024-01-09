@@ -1,27 +1,23 @@
-private String peso = "\u20B1"; // Peso sign unicode
-    private String currency = "PHP"; // Currency code
+private double defaultBills;
+    private double checkupPrice;
+    private double xRayPrice;
+    private double privateRoomPricePerNight;
+    private double icuPrice;
+    private double medicalCertificatePrice;
+    private double ambulanceChargesPrice;
+    private double anesthesiologistsFeePerAnesthesia;
+    private double surgeonsFee; // Note: This price may vary
 
-    private String ctScanPrice;
-    private String checkupPrice;
-    private String xRayPrice;
-    private String privateRoomPricePerNight;
-    private String icuPrice;
-    private String medicalCertificatePrice;
-    private String ambulanceChargesPrice;
-    private String anesthesiologistsFeePerAnesthesia;
-    private String surgeonsFee; // Note: This price may vary
-
-    
     public Hospital() {
-        this.ctScanPrice = peso + "3,500 " + currency;
-        this.checkupPrice = peso + "700 " + currency;
-        this.xRayPrice = peso + "3,000 " + currency;
-        this.privateRoomPricePerNight = peso + "5,000 per night " + currency;
-        this.icuPrice = peso + "8,000 " + currency;
-        this.medicalCertificatePrice = peso + "300 " + currency;
-        this.ambulanceChargesPrice = peso + "500 " + currency;
-        this.anesthesiologistsFeePerAnesthesia = peso + "3,700 per anesthesia " + currency;
-        this.surgeonsFee = peso + "18,000 (prices may vary) " + currency;
+        this.ctScanPrice = 3500.0Php;
+        this.checkupPrice = 700.0Php;
+        this.xRayPrice = 3000.0Php;
+        this.privateRoomPricePerNight = 5000.0Php;
+        this.icuPrice = 8000.0Php;
+        this.medicalCertificatePrice = 300.0Php;
+        this.ambulanceChargesPrice = 500.0Php;
+        this.anesthesiologistsFeePerAnesthesia = 3700.0Php;
+        this.surgeonsFee = 18000.0Php; // Default fee, may vary
     }
 
     }
