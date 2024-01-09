@@ -1,19 +1,21 @@
-package hostfatal;
+package DastralOOP;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Admin extends Overriding{
 	static Scanner sc = new Scanner(System.in);
 	static Overriding over = new Overriding();
-	static userSide patientInformation = new userSide();
+	static UserSide patientInformation = new UserSide();
 	static HashMap<String, String> username = new HashMap<String, String>();
 	private static final String adminUser = "admin";
 	
 	private static final String adminPass = "admin";
 	
 	public static void adminLogin(){
+		over.admin();
 		boolean success = true;
-        do {
+        do{
         	System.out.print("Enter Admin Username : ");
         	String enterAdminUsername = sc.next();
         	System.out.print("Enter Password : ");
@@ -24,32 +26,34 @@ public class Admin extends Overriding{
 	    	} else {
 	    		System.out.println("Wrong Credentials\nInvalid Username or Password");
 	    	}
-      } while (!success);
+      }while (!success);
       
         adminActions();
     }
       
       
-    private static boolean isAdminValid(String adminUsername, String adminPassword) {
+    private static boolean isAdminValid(String adminUsername, String adminPassword){
     	return adminUser.equals(adminUsername) && adminPass.equals(adminPassword);
     }
     
-    public static void startProgram() {
+    public static void startProgram(){
+    		over.name();
     		System.out.println ("[1] - Admin");
     		System.out.println ("[2] - User");
     		System.out.print("Enter your choice: ");
     		int choice = sc.nextInt();
     	    over.line();
-    		if (choice == 1) {
+    		if(choice == 1){
     	        adminLogin();
-    	    } else if (choice == 2) {
+    	    }else if (choice == 2){
     	        userLogin();
-    	    } else {
+    	    }else{
     	    	System.out.println("Invalid choice, Please enter 1 or 2 only.");
     	    }   
     }
     
     public static void userLogin() {
+    	over.userLoginName();
     	System.out.print("Enter username: ");
     	String user = sc.next();
     	System.out.print("Enter password: ");
@@ -65,11 +69,12 @@ public class Admin extends Overriding{
     public static void userInside() {
     	boolean cont = true;
     	while(cont) {
-	    	System.out.println("[1] Patients Health Record");
+	    	System.out.println("[1] View patient record");
 	    	System.out.println("[2] Input new patient record");
 	    	System.out.println("[3] Edit patient record");
 	    	System.out.println("[4] Bills and payments");
-	    	System.out.println("[5] Exit");
+	    	System.out.println("[5] Doctors");
+	    	System.out.println("[6] Exit");
 	    	int choice = sc.nextInt();
 	    		switch(choice) {
 	    		case 1:
@@ -79,11 +84,16 @@ public class Admin extends Overriding{
 	    			patientInformation.patientInfoFinal();
 	    			break;
 	    		case 3:
+	    			patientInformation.editKey();
 	    			break;
 	    		case 4:
+	    			
 	    			break;
 	    		case 5:
 	    			break;
+	    		case 6:
+	    			startProgram();
+	    			cont = false;
 	    	}
     }
  }
@@ -146,9 +156,9 @@ public class Admin extends Overriding{
       if(username.isEmpty()) {
     	  System.out.println("No accounts yet.");
       }else {
-    	  for(Map.Entry m: username.entrySet()) {
-    		  System.out.println("\nUsername: " + m.getKey());
-    		  System.out.println("Password: " + m.getValue() + "\n");
+    	  for(String n : username.keySet()) {
+    		  System.out.println("\nUsername: " + n);
+    		  System.out.println("Password: " + n + "\n");
     	  }
     	  over.line();
       }
