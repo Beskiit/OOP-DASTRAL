@@ -146,9 +146,9 @@ public class Admin extends Overriding{
       if(username.isEmpty()) {
     	  System.out.println("No accounts yet.");
       }else {
-    	  for(String n : username.keySet()) {
-    		  System.out.println("\nUsername: " + n);
-    		  System.out.println("Password: " + n + "\n");
+    	  for(Map.Entry m: username.entrySet()) {
+    		  System.out.println("\nUsername: " + m.getKey());
+    		  System.out.println("Password: " + m.getValue() + "\n");
     	  }
     	  over.line();
       }
