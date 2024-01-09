@@ -86,6 +86,7 @@ public class Doctors extends UserSide {
         doctorCounter++;
 
         System.out.println("\t \t \t \t \t \t \t New doctor added successfully!");
+        over.line();
     }
 }
 
