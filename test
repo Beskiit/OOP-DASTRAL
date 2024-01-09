@@ -1,1 +1,40 @@
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 
+public class HashMapWithLinkedList {
+    public static void main(String[] args) {
+        // Create a HashMap with Integer keys and LinkedList<String> values
+        Map<Integer, LinkedList<String>> hashMap = new HashMap<>();
+
+        // Create LinkedLists and add elements to them
+        LinkedList<String> list1 = new LinkedList<>();
+        list1.add("Element 1");
+        list1.add("Element 2");
+
+        LinkedList<String> list2 = new LinkedList<>();
+        list2.add("Element A");
+        list2.add("Element B");
+        list2.add("Element C");
+
+        // Put the LinkedLists into the HashMap with specific keys
+        hashMap.put(1, list1);
+        hashMap.put(2, list2);
+
+        // Iterate through the HashMap's keys
+        for (Integer key : hashMap.keySet()) {
+            // Print the key
+            System.out.println("Key: " + key);
+
+            // Get the LinkedList associated with the current key
+            LinkedList<String> retrievedList = hashMap.get(key);
+
+            // Print the elements of the retrieved LinkedList
+            if (retrievedList != null) {
+                for (String element : retrievedList) {
+                    System.out.println("Value: " + element);
+                }
+            }
+        }
+    }
+}
