@@ -1,23 +1,22 @@
-private double defaultBills;
+public class Hospital {
+    private double ctScanPrice;
     private double checkupPrice;
     private double xRayPrice;
     private double privateRoomPricePerNight;
     private double icuPrice;
-    private double medicalCertificatePrice;
-    private double ambulanceChargesPrice;
-    private double anesthesiologistsFeePerAnesthesia;
-    private double surgeonsFee; // Note: This price may vary
 
-    public Hospital() {
-        this.ctScanPrice = 3500.0Php;
-        this.checkupPrice = 700.0Php;
-        this.xRayPrice = 3000.0Php;
-        this.privateRoomPricePerNight = 5000.0Php;
-        this.icuPrice = 8000.0Php;
-        this.medicalCertificatePrice = 300.0Php;
-        this.ambulanceChargesPrice = 500.0Php;
-        this.anesthesiologistsFeePerAnesthesia = 3700.0Php;
-        this.surgeonsFee = 18000.0Php; // Default fee, may vary
+        public Hospital() {
+        this.ctScanPrice = 3500.0;
+        this.checkupPrice = 700.0;
+        this.xRayPrice = 3000.0;
+        this.privateRoomPricePerNight = 5000.0;
+        this.icuPrice = 8000.0;
+    }
+
+    
+
+       public double calculateTotalBill() {
+        return ctScanPrice + checkupPrice + xRayPrice + privateRoomPricePerNight + icuPrice;
     }
 
     }
