@@ -89,7 +89,6 @@ public class UserSide extends Admin{
             map.put(editPatient, newPatientInfo);
 
             System.out.println("\t \t \t \t \t \t \t The patient information has been updated!");
-            over.line();
         } else {
             System.out.println("\t \t \t \t \t \t \t Key not found. Please enter a valid key.");
         }
