@@ -71,13 +71,13 @@ public class Doctors extends UserSide {
 
     public static void addDoctor(Map<String, Doctor> doctorMap) {
         over.addDoctor();
-        System.out.println("\t \t \t \t \t \t \t Enter the name of the new doctor: ");
+        System.out.print("\t \t \t \t \t \t \t Enter the name of the new doctor: ");
         String name = sc.nextLine();
 
-        System.out.println("\t \t \t \t \t \t \t Enter the expertise of the new doctor: ");
+        System.out.print("\t \t \t \t \t \t \t Enter the expertise of the new doctor: ");
         String expertise = sc.nextLine();
 
-        System.out.println("\t \t \t \t \t \t \t Enter the schedule of the new doctor: ");
+        System.out.print("\t \t \t \t \t \t \t Enter the schedule of the new doctor: ");
         String schedule = sc.nextLine();
 
         String doctorID = "DOC-" + doctorCounter;
