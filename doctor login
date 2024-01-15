@@ -1,0 +1,9 @@
+import java.util.HashMap;
+  import java.util.Map;
+
+public class DoctorLogin{
+  Map<Integer, String> idToFullNameMap = new HashMap<>();
+  Map<String, String> userToPasswordMap = new HashMap<>();
+
+  idToFullNameMap.put(1. "Dr. Brown");
+  idToFullName
