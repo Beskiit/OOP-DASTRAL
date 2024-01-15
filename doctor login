@@ -1,9 +1,58 @@
 import java.util.HashMap;
-  import java.util.Map;
+import java.util.Map;
 
-public class DoctorLogin{
-  Map<Integer, String> idToFullNameMap = new HashMap<>();
-  Map<String, String> userToPasswordMap = new HashMap<>();
+class DoctorLogin {
+    private int id;
+    private String fullName;
+    private String username;
+    private String password;
 
-  idToFullNameMap.put(1. "Dr. Brown");
-  idToFullName
+    public Doctor(int id, String fullName, String username, String password) {
+        this.id = id;
+        this.fullName = fullName;
+        this.username = username;
+        this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+}
+
+public class DoctorAccountManager {
+    public static void main(String[] args) {
+    Map<Integer, Doctor> doctorMap = new HashMap<>();
+
+        
+        Doctor doctor1 = new Doctor(1, "Dr. Smith", "smith@sample.com", "password123");
+        Doctor doctor2 = new Doctor(2, "Dr. Johnson", "johnon@sample.com", "securePass");
+        Doctor doctor3 = new Doctor(3, "Dr. Davis", "davis@sample.com", "pass123");
+        Doctor doctor4 = new Doctor(4, "Dr. Williams", "williams@sample.com", "securePass123");
+        Doctor doctor5 = new Doctor(5, "Dr. Brown", "brown@example.com", "passSecure");
+
+        doctorMap.put(doctor1.getId(), doctor1);
+        doctorMap.put(doctor2.getId(), doctor2);
+        doctorMap.put(doctor3.getId(), doctor3);
+        doctorMap.put(doctor4.getId(), doctor4);
+        doctorMap.put(doctor5.getId(), doctor5);
+        
+        int doctorId = 1;
+        Doctor retrievedDoctor = doctorMap.get(doctorId);
+        System.out.println("Doctor ID: " + retrievedDoctor.getId() +
+                ", Full Name: " + retrievedDoctor.getFullName() +
+                ", Username: " + retrievedDoctor.getUsername() +
+                ", Password: " + retrievedDoctor.getPassword());
+    }
+}
