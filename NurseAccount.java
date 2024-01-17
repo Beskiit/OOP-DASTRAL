@@ -14,12 +14,55 @@ public class NurseAccount extends Admin{
 	static Map<Integer, TreeMap<String, DoctorData>> doctorMap = new TreeMap<>();
 	static Scanner sc = new Scanner(System.in);
 	
+	public static void nurseOption() {
+		boolean cont = true;
+		while(cont) {
+			System.out.println("\t \t \t \t \t \t \t [1] View patient record");
+	    	System.out.println("\t \t \t \t \t \t \t [2] Input new patient record");
+	    	System.out.println("\t \t \t \t \t \t \t [3] Edit patient record");
+	    	System.out.println("\t \t \t \t \t \t \t [4] Doctor Schedule");
+	    	System.out.println("\t \t \t \t \t \t \t [5] Edit Doctor Schedule");
+	    	System.out.println("\t \t \t \t \t \t \t [6] Account Settings");
+	    	System.out.println("\t \t \t \t \t \t \t [7] Back");
+	    	System.out.print("\t \t \t \t \t \t \t Enter your choice: ");
+	    	
+	    	int choice = sc.nextInt();
+	    	
+	    	switch(choice) {
+	    		case 1:
+	    			viewPatient();
+	    			break;
+	    		case 2:
+	    			patientAdministration();
+	    			break;
+	    		case 3:
+	    			editPatient();
+	    			break;
+	    		case 4:
+	    			doctorSchedule();
+	    			break;
+	    		case 5:
+	    			doctorEditSchedule();
+	    			break;
+	    		case 6:
+	    			accountSettings();
+	    			break;
+	    		case 7:
+	    			startProgram();
+	    			cont = false;
+	    		default:
+	    			System.err.println("Your input is incorrect. Please try again.");	
+	    	}
+		}
+	}
+	
 	public static void viewPatient() {
 		over.viewPatientRecord();
         if (patientInfo.isEmpty()) {
             System.out.println("\t \t \t \t \t \t \t No patient yet.");
+            over.line();
         }else{
-            printPatient(patientInfo);
+            printPatient();
         }
 	}
 	
@@ -61,64 +104,63 @@ public class NurseAccount extends Admin{
 		for(List<String> list : map.values()) {
 			myList.addAll(list);
 		}
-		System.out.println(myList);
 		sc.nextLine();
 		while(true) {
-			System.out.print("Enter the ID of the patient you want to edit (type 'done' if you are done): ");
+			System.out.print("\t \t \t \t \t \t \t Enter the ID of the patient you want to edit (type 'done' if you are done): ");
 			String editPatientID = sc.nextLine();
 			if(editPatientID.equalsIgnoreCase("done")) {
 				break;
 			}
 			
 			if(patientInfo.containsKey(editPatientID)) {
-				System.out.print("Enter the information of the patient you want to edit: ");
+				System.out.print("\t \t \t \t \t \t \t Enter the information of the patient you want to edit: ");
 				String editPatientInfo = sc.nextLine();
 				
 				if(editPatientInfo.equalsIgnoreCase("name")) {
 					editValue = 0;
-					System.out.print("Enter your new information: ");
+					System.out.print("\t \t \t \t \t \t \t Enter your new information: ");
 					myList.set(editValue,"Patient Name: " + sc.nextLine());
 					map.put(editPatientID, myList);
 				}else if(editPatientInfo.equalsIgnoreCase("age")) {
 					editValue = 1;
-					System.out.print("Enter your new information: ");
+					System.out.print("\t \t \t \t \t \t \t Enter your new information: ");
 					myList.set(editValue,"Patient Age: " + sc.nextLine());
 					map.put(editPatientID, myList);
 				}else if(editPatientInfo.equalsIgnoreCase("gender")) {
 					editValue = 2;
-					System.out.print("Enter your new information: ");
+					System.out.print("\t \t \t \t \t \t \t Enter your new information: ");
 					myList.set(editValue,"Patient Gender: " + sc.nextLine());
 					map.put(editPatientID, myList);
 				}else if(editPatientInfo.equalsIgnoreCase("address")) {
 					editValue = 3;
-					System.out.print("Enter your new information: ");
+					System.out.print("\t \t \t \t \t \t \t Enter your new information: ");
 					myList.set(editValue,"Patient Address: " + sc.nextLine());
 					map.put(editPatientID, myList);
 				}else if(editPatientInfo.equalsIgnoreCase("room")) {
 					editValue = 4;
-					System.out.print("Enter your new information: ");
+					System.out.print("\t \t \t \t \t \t \t Enter your new information: ");
 					myList.set(editValue,"Patient Room: " + sc.nextLine());
 					map.put(editPatientID, myList);
 				}else if(editPatientInfo.equalsIgnoreCase("illness")) {
 					editValue = 5;
-					System.out.print("Enter your new information: ");
+					System.out.print("\t \t \t \t \t \t \t Enter your new information: ");
 					myList.set(editValue,"Patient Illness: " + sc.nextLine());
 					map.put(editPatientID, myList);
 				}else if(editPatientInfo.equalsIgnoreCase("doctor")) {
 					editValue = 6;
-					System.out.print("Enter your new information: ");
+					System.out.print("\t \t \t \t \t \t \t Enter your new information: ");
 					myList.set(editValue,"Patient Doctor: " + sc.nextLine());
 					map.put(editPatientID, myList);
 				}else if(editPatientInfo.equalsIgnoreCase("status")) {
 					editValue = 7;
-					System.out.print("Enter your new information: ");
+					System.out.print("\t \t \t \t \t \t \t Enter your new information: ");
 					myList.set(editValue,"Patient Status: " + sc.nextLine());
 					map.put(editPatientID, myList);
 				}else {
-					System.err.println("The information you entered is not present. Please try again.");
+					System.err.println("\t \t \t \t \t \t \t The information you entered is not present. Please try again.");
 				}
 			}else {
-				System.err.println("The patient ID you entered is not present. Please try again.");
+				System.err.println("\t \t \t \t \t \t \t The patient ID you entered is not present. Please try again.");
 			}
 		}
 	}
@@ -147,17 +189,17 @@ public class NurseAccount extends Admin{
 	
 	public static void addDoctors() {
 		while(true) {
-			System.out.println("Enter doctor name (type 'done' if you are done): ");
+			System.out.println("\t \t \t \t \t \t \t Enter doctor name (type 'done' if you are done): ");
 			String doctorName = sc.nextLine();
 			
 			if(doctorName.equalsIgnoreCase("done")) {
 				break;
 			}
 			
-			System.out.println("Enter the expertise of doctor: ");
+			System.out.println("\t \t \t \t \t \t \t Enter the expertise of doctor: ");
 			String expertise = sc.nextLine();
 			
-			System.out.println("Enter the schedule of doctor (type 'done' if you are done): ");
+			System.out.println("\t \t \t \t \t \t \t Enter the schedule of doctor (type 'done' if you are done): ");
 			List<String> schedule = new ArrayList<>();
 			while(true) {
 				String days = sc.nextLine();
@@ -171,27 +213,28 @@ public class NurseAccount extends Admin{
 			doctorMap.get(docKey).put("data", new DoctorData(doctorName, expertise, new ArrayList<>(schedule)));
 			docKey++;
 		}
+		over.line();
 	}
 	
 	public static void doctorEditSchedule() {
-		System.out.println("Enter the ID of doctor: ");
+		System.out.println("\t \t \t \t \t \t \t Enter the ID of doctor: ");
 		int doctorID = sc.nextInt();
 		if(doctorMap.containsKey(doctorID)) {
-			System.out.println("Enter the day you want to remove: ");
+			System.out.println("\t \t \t \t \t \t \t Enter the day you want to remove: ");
 			String dayRemove = sc.nextLine();
 			TreeMap<String, DoctorData> docData = doctorMap.get(doctorID);
 			if(docData.containsKey("data")) {
 				DoctorData getDoctorData = docData.get("data");
 				List<String> sched = getDoctorData.getSchedule();
 				if(sched.isEmpty()) {
-					System.out.println("The doctor has no more schedule.");
+					System.out.println("\t \t \t \t \t \t \t The doctor has no more schedule.");
 				}
 				sched.remove(dayRemove);
 			}else {
-				System.out.println("No schedule found on this doctor.");
+				System.out.println("\t \t \t \\t \t \t \t No schedule found on this doctor.");
 			}
 		}else {
-			System.out.println("There is no match for this doctor with an id of " + doctorID);
+			System.out.println("\t \t \t \t \t \t \t There is no match for this doctor with an id of " + doctorID);
 		}
 	}
 	
@@ -199,15 +242,16 @@ public class NurseAccount extends Admin{
 		
 	}
 	
-	public static void printPatient(Map <String, List<String>> map) {
+	public static void printPatient() {
 		System.out.println("\t \t \t \t \t \t \t Current Patient/s: " + (key-1));
 		over.line();
-		for(Map.Entry<String, List<String>> key : map.entrySet()) {
+		for(Map.Entry<String, List<String>> key : patientInfo.entrySet()) {
 			List<String> values = key.getValue();
 			System.out.println("\t \t \t \t \t \t \t Patient ID: " + key.getKey());
 			for(String value : values) {
 				System.out.println("\t \t \t \t \t \t \t " + value);
 			}
+			over.line();
 		}
 	}
 }
